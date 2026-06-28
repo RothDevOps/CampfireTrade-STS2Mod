@@ -1,0 +1,16 @@
+﻿{
+  "OPTION_TRADE.name": "Kartentausch",
+  "OPTION_TRADE.description": "Fordere eine Karte von einem anderen Spieler an.",
+  "OPTION_TRADE.descriptionDisabled": "Benötigt einen weiteren Spieler.",
+
+  "OPTION_TRADE.selectCard": "Wähle eine Karte aus, die du anfragen möchtest.",
+
+  "OPTION_TRADE.requestHeader": "Tauschanfrage",
+  "OPTION_TRADE.requestBody": "{Initiator} möchte deine Karte erhalten: {Card}.",
+  "OPTION_TRADE.accept": "Annehmen",
+  "OPTION_TRADE.decline": "Ablehnen",
+
+  "OPTION_TRADE.declinedHeader": "Tausch abgelehnt",
+  "OPTION_TRADE.declinedBody": "{Target} hat deine Tauschanfrage für {Card} abgelehnt.",
+  "OPTION_TRADE.ok": "OK"
+}

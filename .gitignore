@@ -1,4 +1,6 @@
 # Local machine config
+Directory.Build.props
+!Directory.Build.props.template
 local.props
 !local.props.template
 
@@ -14,6 +16,7 @@ local.props
 .vs/
 .vscode/*
 *.user
+*.sln.DotSettings
 
 # Build / publish output
 bin/
