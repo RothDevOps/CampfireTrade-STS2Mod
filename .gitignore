@@ -1,0 +1,34 @@
+# Local machine config
+local.props
+!local.props.template
+
+# Godot / MegaDot generated files
+.godot/
+/android/
+/.dotnet/
+*.uid
+*.import
+
+# IDE files
+.idea/
+.vs/
+.vscode/*
+*.user
+
+# Build / publish output
+bin/
+obj/
+publish/
+build/
+
+# Published mod artifacts
+*.dll
+*.pdb
+*.pck
+*.deps.json
+*.runtimeconfig.json
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
