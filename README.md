@@ -18,6 +18,11 @@ This mod is intended for multiplayer runs.
 All players in the lobby should have the same version of the mod installed. 
 The Rest Site option is synchronized across clients, so mismatched mod versions may cause incorrect behavior.
 
+## Localization
+Current supported languages:
+- english
+- german
+
 ## Requirements
 - BaseLib
 
