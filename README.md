@@ -29,9 +29,23 @@ Install Requirements (BaseLib)
 
 Place the published mod files in your Slay the Spire 2 mods folder.
 The installed mod should include files similar to:
-CampfireTrade.dll
-CampfireTrade.pck
-CampfireTrade.json
+
+`CampfireTrade.dll`
+
+`CampfireTrade.pck`
+
+`CampfireTrade.json`
+
+## Local build setup
+This repository does not commit `Directory.Build.props`, because that file contains machine-specific paths.
+
+To set up the project locally:
+
+1. Copy `Directory.Build.props.template`.
+2. Rename the copy to `Directory.Build.props`.
+3. Edit the paths inside `Directory.Build.props`:
+   - `GodotPath`: path to your MegaDot/Godot 4.5.1 Mono executable.
+   - `Sts2Path`: path to your local Slay the Spire 2 install folder.
 
 ## Current Mod Status
 This mod is doing what it says though it is still in early development.
