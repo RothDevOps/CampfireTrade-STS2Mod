@@ -28,7 +28,7 @@ Current supported languages:
 
 ## Installation
 ### Workshop installation
-Best installed via the workshop: TODO: Add workshop link
+Best installed via the workshop: [Campfire Trade](https://steamcommunity.com/sharedfiles/filedetails/?id=3753526246)
 ### Manual installation
 Install Requirements (BaseLib)
 
