@@ -6,11 +6,11 @@
   "OPTION_TRADE.selectCard": "Choose a card to request.",
 
   "OPTION_TRADE.requestHeader": "Trade Request",
-  "OPTION_TRADE.requestBody": "{Initiator} wants to take your card: {Card}.",
+  "OPTION_TRADE.requestBody": "{Initiator} wants to take your card.",
   "OPTION_TRADE.accept": "Accept",
   "OPTION_TRADE.decline": "Decline",
 
   "OPTION_TRADE.declinedHeader": "Trade Declined",
-  "OPTION_TRADE.declinedBody": "{Target} declined your trade request for {Card}.",
+  "OPTION_TRADE.declinedBody": "{Target} declined your trade request.",
   "OPTION_TRADE.ok": "OK"
 }

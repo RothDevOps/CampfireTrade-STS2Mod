@@ -9,11 +9,12 @@ namespace CampfireTrade.CampfireTradeCode.Patches;
 internal static class AddTradeRestSiteOptionPatch
 {
     private const string TradeOptionId = "TRADE";
+    private const bool DebugAllowSoloTradePopup = false;
 
     private static void Postfix(Player player, List<RestSiteOption> __result)
     {
         // Optional: only show in multiplayer.
-        if (player.RunState.Players.Count <= 1)
+        if (!DebugAllowSoloTradePopup && player.RunState.Players.Count <= 1)
             return;
 
         // Prevent duplicates if another patch/hook also adds it.
