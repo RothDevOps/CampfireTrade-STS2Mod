@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhbh84sj3qp8v"]
+
+[ext_resource type="Script" uid="uid://b1ruxvndeh4j7" path="res://CampfireTradeCode/Testing/NCustomSceneTest.cs" id="1_3k6lx"]
+
+[node name="NCustomSceneTest" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_3k6lx")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Center" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 2
+
+[node name="Message" type="Label" parent="Center/Panel/Content"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Center/Panel/Content"]
+layout_mode = 2

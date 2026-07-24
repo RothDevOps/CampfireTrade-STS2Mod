@@ -18,14 +18,25 @@
     </PropertyGroup>
 
     <ItemGroup Condition="Exists('$(Sts2DataDir)')">
-        <Reference Include="0Harmony">
-            <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="sts2">
-            <HintPath>$(Sts2DataDir)/sts2.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
+    	<Reference Include="0Harmony">
+        	<HintPath>$(Sts2DataDir)\0Harmony.dll</HintPath>
+
+        	<!-- Godot needs this assembly beside the Debug project assembly. -->
+        	<Private Condition="'$(Configuration)' == 'Debug'">true</Private>
+
+        	<!-- Do not distribute it as part of release builds. -->
+        	<Private Condition="'$(Configuration)' != 'Debug'">false</Private>
+    	</Reference>
+
+    	<Reference Include="sts2">
+        	<HintPath>$(Sts2DataDir)\sts2.dll</HintPath>
+
+        	<!-- Godot needs this assembly beside the Debug project assembly. -->
+        	<Private Condition="'$(Configuration)' == 'Debug'">true</Private>
+
+        	<!-- Do not distribute the game's assembly. -->
+        	<Private Condition="'$(Configuration)' != 'Debug'">false</Private>
+    	</Reference>
     </ItemGroup>
 
     <ItemGroup Condition="False"> <!--Allows access to originally private/protected members but may (unlikely to) cause errors.-->
@@ -112,23 +123,31 @@
                Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')"/>
     </Target>
 
+    <PropertyGroup>
+    	<GodotEditorAssemblyDir>$(MSBuildProjectDirectory)\.godot\mono\temp\bin\Debug\</GodotEditorAssemblyDir>
+    </PropertyGroup>
+
     <Target Name="StageGameAssembliesForGodot"
-        AfterTargets="Build"
-        Condition="Exists('$(Sts2DataDir)/sts2.dll')">
+              AfterTargets="Build"
+              BeforeTargets="GodotPublish"
+              Condition="Exists('$(Sts2DataDir)\sts2.dll')
+                         and Exists('$(Sts2DataDir)\0Harmony.dll')">
 
-        <ItemGroup>
-              <GodotGameAssembly Include="$(Sts2DataDir)/sts2.dll"/>
-              <GodotGameAssembly Include="$(Sts2DataDir)/0Harmony.dll"/>
-        </ItemGroup>
+    	<ItemGroup>
+              <GodotGameAssembly Include="$(Sts2DataDir)\sts2.dll"/>
+              <GodotGameAssembly Include="$(Sts2DataDir)\0Harmony.dll"/>
+    	</ItemGroup>
 
-        <Message
-              Text="Staging game assemblies for MegaDot/Godot."
+    	<MakeDir Directories="$(GodotEditorAssemblyDir)"/>
+
+    	<Message
+              Text="Staging game assemblies for MegaDot/Godot in '$(GodotEditorAssemblyDir)'."
               Importance="high"/>
 
-        <Copy
-              SourceFiles="@(GodotGameAssembly)"
-              DestinationFolder="$(TargetDir)"
-              SkipUnchangedFiles="true"/>
+    	<Copy
+     	      SourceFiles="@(GodotGameAssembly)"
+   	      DestinationFolder="$(GodotEditorAssemblyDir)"
+ 	      SkipUnchangedFiles="true"/>
     </Target>
 
     <Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
