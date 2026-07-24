@@ -11,7 +11,7 @@ public class TradeRestSiteOption(Player owner) : RestSiteOption(owner)
     public override string OptionId => "TRADE";
     
     // DEBUG
-    private const bool DebugAllowSoloTradePopup = false;
+    private const bool DebugAllowSoloTradePopup = true;
     // Needs to be set to 1 if only shown in multiplayer
     public override bool IsEnabled => DebugAllowSoloTradePopup || Owner.RunState.Players.Count > 1;
     

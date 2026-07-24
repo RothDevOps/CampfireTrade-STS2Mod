@@ -9,7 +9,7 @@ namespace CampfireTrade.CampfireTradeCode.Patches;
 internal static class AddTradeRestSiteOptionPatch
 {
     private const string TradeOptionId = "TRADE";
-    private const bool DebugAllowSoloTradePopup = false;
+    private const bool DebugAllowSoloTradePopup = true;
 
     private static void Postfix(Player player, List<RestSiteOption> __result)
     {

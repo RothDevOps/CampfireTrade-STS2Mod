@@ -1,4 +1,5 @@
 ﻿using CampfireTrade.CampfireTradeCode.Screens;
+using CampfireTrade.CampfireTradeCode.Testing;
 using Godot;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Context;
@@ -67,26 +68,26 @@ public static class TradeFlow
     public static async Task<bool> DebugShowSelfTradeRequest(Player player)
     {
         CardModel? card = PileType.Deck.GetPile(player).Cards.FirstOrDefault(CanTradeCard);
-
+        
         if (card == null)
         {
             MainFile.Logger.Warn("Debug trade popup test failed: player deck has no tradable cards.");
             return false;
         }
-
+        
         TradeOffer offer = new()
         {
             Initiator = player,
             Target = player,
             RequestedCard = card
         };
-
+        
         MainFile.Logger.Info($"Showing debug self trade popup for card {card.Title}.");
-
-        bool accepted = await NTradeRequestPopup.ShowRequestToTarget(offer);
-
+        
+        bool accepted = await NCustomTradeRequestPopup.ShowRequestToTarget(offer);
+        
         MainFile.Logger.Info($"Debug self trade popup closed. Accepted={accepted}");
-
+        
         // Important: false means the Rest Site option is not consumed.
         // This is only a visual/layout test.
         return false;

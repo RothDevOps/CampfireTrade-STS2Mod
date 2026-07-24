@@ -1,27 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhbh84sj3qp8v"]
-
-[ext_resource type="Script" uid="uid://b1ruxvndeh4j7" path="res://CampfireTradeCode/Testing/NCustomSceneTest.cs" id="1_3k6lx"]
+[gd_scene format=3 uid="uid://bhbh84sj3qp8v"]
 
 [node name="NCustomSceneTest" type="CanvasLayer"]
 layer = 100
-script = ExtResource("1_3k6lx")
 
-[node name="Background" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Center" type="CenterContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Dimmer" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3137255)
 
-[node name="Panel" type="PanelContainer" parent="Center"]
+[node name="Center" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Control/Center"]
+custom_minimum_size = Vector2(480, 240)
 layout_mode = 2
 
-[node name="Content" type="VBoxContainer" parent="Center/Panel"]
+[node name="Content" type="VBoxContainer" parent="Control/Center/Panel"]
 layout_mode = 2
 
-[node name="Message" type="Label" parent="Center/Panel/Content"]
+[node name="Title" type="Label" parent="Control/Center/Panel/Content"]
 layout_mode = 2
+text = "Campfire Trade custom scene"
 
-[node name="CloseButton" type="Button" parent="Center/Panel/Content"]
+[node name="Counter" type="Label" parent="Control/Center/Panel/Content"]
 layout_mode = 2
+text = "Button pressed 0 times"
+
+[node name="TestButton" type="Button" parent="Control/Center/Panel/Content"]
+layout_mode = 2
+text = "Test Interaction"
+
+[node name="CloseButton" type="Button" parent="Control/Center/Panel/Content"]
+layout_mode = 2
+text = "Close"

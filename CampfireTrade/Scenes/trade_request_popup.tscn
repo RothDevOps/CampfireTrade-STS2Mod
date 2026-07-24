@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cjuxt811rdi5t"]
+
+[node name="TradeRequestPopup" type="CanvasLayer"]
+
+[node name="Root" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backstop" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3137255)
+
+[node name="Center" type="CenterContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Root/Center"]
+custom_minimum_size = Vector2(650, 700)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Root/Center/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="Content" type="VBoxContainer" parent="Root/Center/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HeaderLabel" type="Label" parent="Root/Center/Panel/Margin/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Trade Offer"
+horizontal_alignment = 1
+
+[node name="BodyLabel" type="RichTextLabel" parent="Root/Center/Panel/Margin/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Trade Offer Text"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="CardSlot" type="Control" parent="Root/Center/Panel/Margin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 360)
+layout_mode = 2
+
+[node name="ButtonRow" type="HBoxContainer" parent="Root/Center/Panel/Margin/Content"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="NoButton" type="Button" parent="Root/Center/Panel/Margin/Content/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 50)
+layout_mode = 2
+text = "Decline"
+
+[node name="YesButton" type="Button" parent="Root/Center/Panel/Margin/Content/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 50)
+layout_mode = 2
+text = "Accept"
