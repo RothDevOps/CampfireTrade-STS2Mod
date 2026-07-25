@@ -14,7 +14,7 @@ internal static class AddTradeRestSiteOptionPatch
     private static void Postfix(Player player, List<RestSiteOption> __result)
     {
         // Optional: only show in multiplayer.
-        if (!CampfireTradeConfig.AllowSoloTrades && player.RunState.Players.Count <= 1)
+        if (!CampfireTradeConfig.AllowSoloTradePopup && player.RunState.Players.Count <= 1)
             return;
 
         // Prevent duplicates if another patch/hook also adds it.

@@ -11,7 +11,7 @@ public class TradeRestSiteOption(Player owner) : RestSiteOption(owner)
 {
     public override string OptionId => "TRADE";
     
-    public override bool IsEnabled => CampfireTradeConfig.AllowSoloTrades || Owner.RunState.Players.Count > 1;
+    public override bool IsEnabled => CampfireTradeConfig.AllowSoloTradePopup || Owner.RunState.Players.Count > 1;
     
     public override IEnumerable<string> AssetPaths => base.AssetPaths.Concat(NGenericPopup.AssetPaths);
     
