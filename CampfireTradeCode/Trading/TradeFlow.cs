@@ -1,4 +1,5 @@
-﻿using CampfireTrade.CampfireTradeCode.Screens;
+﻿using CampfireTrade.CampfireTradeCode.Config;
+using CampfireTrade.CampfireTradeCode.Screens;
 using CampfireTrade.CampfireTradeCode.Testing;
 using Godot;
 using MegaCrit.Sts2.Core.CardSelection;
@@ -62,7 +63,9 @@ public static class TradeFlow
             return false;
         }
 
-        return await TradeExecutor.Execute(offer);
+        var result = await TradeExecutor.Execute(offer);
+
+        return !CampfireTradeConfig.UnlimitedTrades && result;
     }
     
     public static async Task<bool> DebugShowSelfTradeRequest(Player player)
@@ -84,7 +87,7 @@ public static class TradeFlow
         
         MainFile.Logger.Info($"Showing debug self trade popup for card {card.Title}.");
         
-        bool accepted = await NCustomTradeRequestPopup.ShowRequestToTarget(offer);
+        bool accepted = await TradeRequestPopupController.ShowRequestToTarget(offer);
         
         MainFile.Logger.Info($"Debug self trade popup closed. Accepted={accepted}");
         

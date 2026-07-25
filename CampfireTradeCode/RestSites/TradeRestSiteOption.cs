@@ -1,4 +1,5 @@
-﻿using CampfireTrade.CampfireTradeCode.Trading;
+﻿using CampfireTrade.CampfireTradeCode.Config;
+using CampfireTrade.CampfireTradeCode.Trading;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.RestSite;
 using MegaCrit.Sts2.Core.Localization;
@@ -10,10 +11,7 @@ public class TradeRestSiteOption(Player owner) : RestSiteOption(owner)
 {
     public override string OptionId => "TRADE";
     
-    // DEBUG
-    private const bool DebugAllowSoloTradePopup = true;
-    // Needs to be set to 1 if only shown in multiplayer
-    public override bool IsEnabled => DebugAllowSoloTradePopup || Owner.RunState.Players.Count > 1;
+    public override bool IsEnabled => CampfireTradeConfig.AllowSoloTrades || Owner.RunState.Players.Count > 1;
     
     public override IEnumerable<string> AssetPaths => base.AssetPaths.Concat(NGenericPopup.AssetPaths);
     
@@ -30,8 +28,10 @@ public class TradeRestSiteOption(Player owner) : RestSiteOption(owner)
 
     public override Task<bool> OnSelect()
     {
-        if (DebugAllowSoloTradePopup && Owner.RunState.Players.Count <= 1)
+        if (CampfireTradeConfig.AllowSoloTrades)
+        {
             return TradeFlow.DebugShowSelfTradeRequest(Owner);
+        }
 
         return TradeFlow.Start(this, Owner);
     }

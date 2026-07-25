@@ -1,0 +1,15 @@
+{
+  "CAMPFIRETRADE.mod_title": "Campfire Trade",
+  
+  "CAMPFIRETRADE-GENERAL_SETTINGS.title": "General Settings",
+  
+  "CAMPFIRETRADE-UNLIMITED_TRADES.title": "Unlimited trades",
+  "CAMPFIRETRADE-UNLIMITED_TRADES.hover.desc": "Allows for unlimited trades during campfire rest.",
+  
+  "CAMPFIRETRADE-DEBUG_SETTINGS.title": "Debug Settings",
+  
+  "CAMPFIRETRADE-ENABLE_DEBUG.title": "Enable Debug",
+  "CAMPFIRETRADE-ENABLE_DEBUG.hover.desc": "Developer settings only, no usage for normal users.",
+  "CAMPFIRETRADE-ALLOW_SOLO_TRADES.title": "Enable solo trade",
+  "CAMPFIRETRADE-ALLOW_SOLO_TRADES.hover.desc": "Allows to visualize trading screen when debugging in singleplayer"
+}
