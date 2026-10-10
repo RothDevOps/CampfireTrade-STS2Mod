@@ -60,5 +60,7 @@ There are still improvements to be made and I'm also keen to read your comments 
 This mod changes Rest Site behavior by adding an additional Rest Site option. 
 It may conflict with other mods that heavily modify Rest Site option generation or multiplayer Rest Site synchronization.
 
+For client-specific missing Trade buttons, see the [diagnostic procedure](docs/missing-trade-button.md).
+
 ## License
 See the repository license file for details.

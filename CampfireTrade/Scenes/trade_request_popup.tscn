@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cjuxt811rdi5t"]
+
+[node name="TradeRequestPopup" type="CanvasLayer"]
+
+[node name="Root" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backstop" type="ColorRect" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3137255)
+
+[node name="Center" type="CenterContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PopupFrame" type="Control" parent="Root/Center"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(620, 760)
+layout_mode = 2
+
+[node name="PanelHost" type="Control" parent="Root/Center/PopupFrame"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ContentMargin" type="MarginContainer" parent="Root/Center/PopupFrame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="VBoxContainer" parent="Root/Center/PopupFrame/ContentMargin"]
+layout_mode = 2
+
+[node name="HeaderHost" type="CenterContainer" parent="Root/Center/PopupFrame/ContentMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="DescriptionHost" type="CenterContainer" parent="Root/Center/PopupFrame/ContentMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+
+[node name="CardSlot" type="Control" parent="Root/Center/PopupFrame/ContentMargin/Content"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 260)
+layout_mode = 2
+
+[node name="Expander" type="Control" parent="Root/Center/PopupFrame/ContentMargin/Content"]
+layout_mode = 2
+
+[node name="ButtonRow" type="HBoxContainer" parent="Root/Center/PopupFrame/ContentMargin/Content"]
+custom_minimum_size = Vector2(573, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="NoButtonHost" type="CenterContainer" parent="Root/Center/PopupFrame/ContentMargin/Content/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+
+[node name="Expander" type="Control" parent="Root/Center/PopupFrame/ContentMargin/Content/ButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="YesButtonHost" type="CenterContainer" parent="Root/Center/PopupFrame/ContentMargin/Content/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2

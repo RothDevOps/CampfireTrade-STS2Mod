@@ -1,4 +1,6 @@
-﻿using CampfireTrade.CampfireTradeCode.Screens;
+﻿using CampfireTrade.CampfireTradeCode.Config;
+using CampfireTrade.CampfireTradeCode.Screens;
+using CampfireTrade.CampfireTradeCode.Testing;
 using Godot;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Context;
@@ -61,7 +63,37 @@ public static class TradeFlow
             return false;
         }
 
-        return await TradeExecutor.Execute(offer);
+        var result = await TradeExecutor.Execute(offer);
+
+        return !CampfireTradeConfig.UnlimitedTrades && result;
+    }
+    
+    public static async Task<bool> DebugShowSelfTradeRequest(Player player)
+    {
+        CardModel? card = PileType.Deck.GetPile(player).Cards.FirstOrDefault(CanTradeCard);
+        
+        if (card == null)
+        {
+            MainFile.Logger.Warn("Debug trade popup test failed: player deck has no tradable cards.");
+            return false;
+        }
+        
+        TradeOffer offer = new()
+        {
+            Initiator = player,
+            Target = player,
+            RequestedCard = card
+        };
+        
+        MainFile.Logger.Info($"Showing debug self trade popup for card {card.Title}.");
+        
+        bool accepted = await TradeRequestPopupController.ShowRequestToTarget(offer);
+        
+        MainFile.Logger.Info($"Debug self trade popup closed. Accepted={accepted}");
+        
+        // Important: false means the Rest Site option is not consumed.
+        // This is only a visual/layout test.
+        return false;
     }
 
     private static async Task<Player?> SelectTargetPlayer(RestSiteOption sourceOption, Player initiator)
@@ -182,7 +214,7 @@ public static class TradeFlow
 
         if (LocalContext.IsMe(offer.Target))
         {
-            bool accepted = await NTradeRequestPopup.ShowRequestToTarget(offer);
+            bool accepted = await TradeRequestPopupController.ShowRequestToTarget(offer);
             
             RunManager.Instance.PlayerChoiceSynchronizer.SyncLocalChoice(
                 offer.Target,
