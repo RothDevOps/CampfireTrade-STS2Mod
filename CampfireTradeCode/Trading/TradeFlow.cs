@@ -214,7 +214,7 @@ public static class TradeFlow
 
         if (LocalContext.IsMe(offer.Target))
         {
-            bool accepted = await NTradeRequestPopup.ShowRequestToTarget(offer);
+            bool accepted = await TradeRequestPopupController.ShowRequestToTarget(offer);
             
             RunManager.Instance.PlayerChoiceSynchronizer.SyncLocalChoice(
                 offer.Target,
